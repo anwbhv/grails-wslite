@@ -1,0 +1,4 @@
+This plugin brings the power of [Groovy WsLite|https://github.com/jwagenleitner/groovy-wslite] library to your Grails app.
+
+Thanks to Andres Almiray for the provided code at the [Griffon WsLite Plugin|https://github.com/griffon/griffon-wslite-plugin]!
+

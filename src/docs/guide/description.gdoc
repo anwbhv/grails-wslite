@@ -1,0 +1,30 @@
+h4. Usage
+
+The plugin will inject the following dynamic methods:
+{code}
+withRest(Map params, Closure stmts) // executes stmts using a RESTClient
+withHttp(Map params, Closure stmts) // executes stmts using an HTTPClient
+withSoap(Map params, Closure stmts) // executes stmts using a SOAPClient
+{code}
+to your controllers/services.
+
+The following properties will be set on the implicit HTTPClient when using either @withRest@ or @withSoap@:
+{code}
+connectTimeout
+readTimeout
+followRedirects
+useCaches
+sslTrustAllCerts
+sslTrustStoreFile
+sslTrustStorePassword
+proxy
+httpConnectionFactory
+authorization
+{code}
+
+All dynamic methods will create a new client when invoked unless you define an @id:@ attribute.
+When this attribute is supplied the client will be stored in a cache managed by the @WsliteProvider@ that handled the call.
+
+These methods are also accessible to any component through the singleton
+@org.grails.plugins.wslite.WsliteEnhancer@. You can inject these methods to non-artifacts via metaclasses.
+Simply grab hold of a particular metaclass and call @WsliteEnhancer.enhance(metaClassInstance)@.
