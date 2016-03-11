@@ -8,3 +8,13 @@ target
 /plugins
 /web-app/plugins
 /web-app/WEB-INF/classes
+.idea
+/bin/
+/build/
+/.gradle/
+.project
+.settings
+.classpath
+*.iml
+*.ipr 
+*.iws

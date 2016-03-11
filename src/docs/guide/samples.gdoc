@@ -1,0 +1,61 @@
+{code}
+withRest(url: 'http://api.twitter.com/1/') {
+   def response = get(path: '/users/show.json',
+                      query: [screen_name: 'jwagenleitner', include_entities: true])
+   println response.json
+}
+{code}
+
+{code}
+withSoap(serviceURL: 'http://www.holidaywebservice.com/Holidays/US/Dates/USHolidayDates.asmx') {
+   def response = send(SOAPAction: 'http://www.27seconds.com/Holidays/US/Dates/GetMothersDay') {
+      body {
+         GetMothersDay(xmlns: 'http://www.27seconds.com/Holidays/US/Dates/') {
+            year(2011)
+         }
+      }
+   }
+   println response.GetMothersDayResponse.GetMothersDayResult.text()
+}
+{code}
+
+{code}
+withSoap(serviceURL: 'http://www.holidaywebservice.com/Holidays/US/Dates/USHolidayDates.asmx') {
+   def response = send {
+      body {
+         GetMothersDay(xmlns: 'http://www.27seconds.com/Holidays/US/Dates/') {
+            year(2011)
+         }
+      }
+   }
+   println response.GetMothersDayResponse.GetMothersDayResult.text()
+}
+{code}
+
+{code}
+withSoap(serviceURL: 'http://www.w3schools.com/webservices/tempconvert.asmx') {
+   def response = send(SOAPAction: 'http://tempuri.org/CelsiusToFahrenheit') {
+      body {
+         CelsiusToFahrenheit(xmlns: 'http://tempuri.org/') {
+            Celsius("0")
+         }
+      }
+   }
+   def result = response.CelsiusToFahrenheitResponse.CelsiusToFahrenheitResult.text()
+   println "You are probably freezing at ${result} degrees Farhenheit"
+}
+{code}
+
+{code}
+withSoap(serviceURL: 'http://www.w3schools.com/webservices/tempconvert.asmx') {
+   def response = send {
+      body {
+         CelsiusToFahrenheit(xmlns: 'http://tempuri.org/') {
+            Celsius(0)
+         }
+      }
+   }
+   def result = response.CelsiusToFahrenheitResponse.CelsiusToFahrenheitResult.text()
+   println "You are probably freezing at ${result} degrees Farhenheit"
+}
+{code}
