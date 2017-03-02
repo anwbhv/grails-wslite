@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/anwbhv/grails-wslite.svg)](https://travis-ci.org/anwbhv/grails-wslite)
+[![Build Status](https://travis-ci.org/hbogaards/grails-wslite.svg)](https://travis-ci.org/hbogaards/grails-wslite)
 
 # Grails WsLite Plugin
 
