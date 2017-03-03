@@ -13,19 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package wslite
+package org.grails.plugins.wslite
 
 import grails.plugins.Plugin
 
 class WsliteGrailsPlugin extends Plugin {
 
-    def grailsVersion = "3.0.0 > *"
+    def grailsVersion = "3.1.15 > *"
 
     def pluginExcludes = [
-            "web-app/css",
-            "web-app/images",
-            "web-app/js/prototype",
-            "web-app/js/application.js"
+        "grails-app/views/error.gsp"
     ]
     def observe = ["controllers", "services"]
 
@@ -35,7 +32,7 @@ class WsliteGrailsPlugin extends Plugin {
     def description = '''This plugin brings the power of https://github.com/jwagenleitner/groovy-wslite library to your
 Grails app. Thanks to Andres Almiray to provided code at https://github.com/griffon/griffon-wslite-plugin!'''
 
-    def documentation = "http://grails.org/plugin/wslite"
+    def documentation = "http://hbogaards.github.io/grails-wslite/latest/"
 
     def license = "APACHE"
 

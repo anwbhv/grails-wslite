@@ -1,10 +1,23 @@
 grails:
     profile: web-plugin
     codegen:
-        defaultPackage: wslite
+        defaultPackage: org.grails.plugins.wslite
     doc:
         authors: Mihai Cazacu, Hans Bogaards
+    spring:
+        transactionManagement:
+            proxies: false
+info:
+    app:
+        name: '@info.app.name@'
+        version: '@info.app.version@'
+        grailsVersion: '@info.app.grailsVersion@'
 spring:
   groovy:
     template:
       check-template-location: false
+# Spring Actuator Endpoints are Disabled by Default
+endpoints:
+    enabled: false
+    jmx:
+        enabled: true
