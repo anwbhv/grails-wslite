@@ -63,7 +63,8 @@ if [[ -n $TRAVIS_TAG ]] || [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST
     ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
     ENCRYPTED_KEY=${!ENCRYPTED_KEY_VAR}
     ENCRYPTED_IV=${!ENCRYPTED_IV_VAR}
-    openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in ../deploy-key.enc -out deploy-key -d
+    #openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in ../deploy-key.enc -out deploy-key -d
+    openssl aes-256-cbc -K $encrypted_b5136ad3fa07_key -iv $encrypted_b5136ad3fa07_iv -in ../deploy-key.enc -out deploy-key -d
     chmod 600 deploy-key
     eval `ssh-agent -s`
     ssh-add deploy-key
